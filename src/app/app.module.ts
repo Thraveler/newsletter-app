@@ -14,13 +14,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { NewslettersComponent } from './newsletters/newsletters.component';
 import { NewsletterDetailComponent } from './newsletter-detail/newsletter-detail.component';
+import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     NewslettersComponent,
-    NewsletterDetailComponent
+    NewsletterDetailComponent,
+    CampaignDetailComponent
   ],
   imports: [
     BrowserModule,
