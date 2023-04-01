@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Newsletter {
   id: number;
@@ -25,9 +26,11 @@ export class NewslettersComponent {
   displayedColumns: string[] = ['id', 'name', 'countCampaigns', 'countSubscribers', 'createdAt', 'updatedAt'];
   dataSource = ELEMENT_DATA;
   
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
 
   newsletterSelected(newsletter: Newsletter) {
-    console.log(newsletter);
+    console.log(newsletter)
+    this.router.navigate([`/newsletters/${newsletter.id}`], { relativeTo: this.route});
   }
 }
