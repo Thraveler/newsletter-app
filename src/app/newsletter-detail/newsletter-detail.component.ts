@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NewslettersService } from '../services/newsletters/newsletters.service';
 
 export interface NewsletterDetail {
   id: number;
@@ -54,12 +55,29 @@ const ELEMENT_DATA: NewsletterDetail = {
   templateUrl: './newsletter-detail.component.html',
   styleUrls: ['./newsletter-detail.component.css'],
 })
-export class NewsletterDetailComponent {
-  newsletter = ELEMENT_DATA;
+export class NewsletterDetailComponent implements OnInit {
+  newsletter: NewsletterDetail | undefined;
   displayedColumns: string[] = ['id', 'subject', 'sendDate'];
   displayedColumnsSubscribers: string[] = ['id', 'email'];
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private newsletterService: NewslettersService
+  ) {}
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('newsletterId');
+    if (id) this.getNewsletterById(+id);
+  }
+
+  getNewsletterById(newsletterId: number) {
+    this.newsletterService
+      .getNewsletterById(newsletterId)
+      .subscribe((newsletter) => {
+        this.newsletter = newsletter;
+      });
+  }
 
   newsletterSelected(row: Campaign) {
     console.log(row);

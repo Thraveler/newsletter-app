@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { NewslettersComponent } from './newsletters/newsletters.component';
 import { NewsletterDetailComponent } from './newsletter-detail/newsletter-detail.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { CampaignDetailComponent } from './campaign-detail/campaign-detail.compo
     NavigationComponent,
     NewslettersComponent,
     NewsletterDetailComponent,
-    CampaignDetailComponent
+    CampaignDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +35,10 @@ import { CampaignDetailComponent } from './campaign-detail/campaign-detail.compo
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
