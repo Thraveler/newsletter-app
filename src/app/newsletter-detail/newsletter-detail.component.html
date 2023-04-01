@@ -7,7 +7,9 @@
   <section>
     <div class="section-newsletter-detail-header">
       <h2>Campaigns</h2>
-      <button mat-raised-button color="primary">Add Campaign</button>
+      <button mat-raised-button color="primary" (click)="openDialog()">
+        Add Campaign
+      </button>
     </div>
     <table
       mat-table
@@ -46,7 +48,13 @@
   <section>
     <div class="section-newsletter-detail-header">
       <h2>Subscribers</h2>
-      <button mat-raised-button color="primary">Add subscriber</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openDialogSubscriber()"
+      >
+        Add subscriber
+      </button>
     </div>
 
     <table

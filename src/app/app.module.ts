@@ -21,6 +21,8 @@ import { DialogCreateNewsletterComponent } from './dialog-create-newsletter/dial
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DialogCreateCampaignComponent } from './dialog-create-campaign/dialog-create-campaign.component';
+import { DialogCreateSubscriberComponent } from './dialog-create-subscriber/dialog-create-subscriber.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { MatInputModule } from '@angular/material/input';
     NewsletterDetailComponent,
     CampaignDetailComponent,
     DialogCreateNewsletterComponent,
+    DialogCreateCampaignComponent,
+    DialogCreateSubscriberComponent,
   ],
   imports: [
     BrowserModule,

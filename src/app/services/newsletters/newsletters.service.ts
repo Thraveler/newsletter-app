@@ -42,4 +42,29 @@ export class NewslettersService {
       }
     );
   }
+
+  addCampaign(campaignId: number, subject: string, content: string) {
+    return this.http.post(
+      `${this.newslettersUrl}/${campaignId}/campaigns`,
+      { subject, content },
+      {
+        headers,
+      }
+    );
+  }
+
+  addSubscriber(
+    campaignId: number,
+    name: string,
+    lastname: string,
+    email: string
+  ) {
+    return this.http.post(
+      `${this.newslettersUrl}/${campaignId}/subscribers`,
+      { name, lastname, email },
+      {
+        headers,
+      }
+    );
+  }
 }

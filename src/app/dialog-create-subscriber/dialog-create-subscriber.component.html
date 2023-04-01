@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Create subscriber</h1>
+<div mat-dialog-content>
+  <p>What's your subscriber name?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name" />
+  </mat-form-field>
+  <p>What's your subscriber lastname?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Lastname</mat-label>
+    <input matInput [(ngModel)]="data.lastname" />
+  </mat-form-field>
+  <p>What's your subscriber email?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">No Thanks</button>
+  <button mat-button (click)="onSave()">Save</button>
+  <!-- <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button> -->
+</div>

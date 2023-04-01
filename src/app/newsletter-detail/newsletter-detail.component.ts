@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewslettersService } from '../services/newsletters/newsletters.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogCreateCampaignComponent } from '../dialog-create-campaign/dialog-create-campaign.component';
+import { DialogCreateSubscriberComponent } from '../dialog-create-subscriber/dialog-create-subscriber.component';
 
 export interface NewsletterDetail {
   id: number;
@@ -63,12 +66,33 @@ export class NewsletterDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private newsletterService: NewslettersService
+    private newsletterService: NewslettersService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('newsletterId');
     if (id) this.getNewsletterById(+id);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogCreateCampaignComponent, {
+      data: { newsletterId: this.newsletter?.id },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) window.location.reload();
+    });
+  }
+
+  openDialogSubscriber(): void {
+    const dialogRef = this.dialog.open(DialogCreateSubscriberComponent, {
+      data: { newsletterId: this.newsletter?.id },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) window.location.reload();
+    });
   }
 
   getNewsletterById(newsletterId: number) {
