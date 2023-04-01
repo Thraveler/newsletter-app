@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CampaignsService } from '../services/campaigns/campaigns.service';
+import { ActivatedRoute } from '@angular/router';
 
 export interface Campaign {
   id: number;
@@ -23,6 +25,28 @@ const data: Campaign = {
   templateUrl: './campaign-detail.component.html',
   styleUrls: ['./campaign-detail.component.css'],
 })
-export class CampaignDetailComponent {
+export class CampaignDetailComponent implements OnInit {
   campaign = data;
+
+  constructor(
+    private campaignService: CampaignsService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('campaignId');
+    if (id) this.getCampaignById(+id);
+  }
+
+  getCampaignById(campaignId: number) {
+    this.campaignService.getCampaignById(campaignId).subscribe((campaign) => {
+      this.campaign = campaign;
+    });
+  }
+
+  sendCampaign() {
+    this.campaignService.sendCampaig(this.campaign.id).subscribe((result) => {
+      console.log(result);
+    });
+  }
 }

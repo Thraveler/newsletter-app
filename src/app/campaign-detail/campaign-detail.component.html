@@ -1,6 +1,11 @@
+<article id="campaign-detail-container">
+  <h1>{{ campaign.subject }}</h1>
+  <p>Content: {{ campaign.content }}</p>
+  <p>SendDate: {{ campaign.sendDate | date }}</p>
+  <p>CreatedAt: {{ campaign.createdAt | date }}</p>
+  <p>UpdatedAt: {{ campaign.updatedAt | date }}</p>
 
-<h1>{{ campaign.subject }}</h1>
-<p>Content: {{ campaign.content }}</p>
-<p>SendDate: {{ campaign.sendDate | date }}</p>
-<p>CreatedAt: {{ campaign.createdAt | date}}</p>
-<p>UpdatedAt: {{ campaign.updatedAt | date}}</p>
+  <button mat-raised-button color="primary" (click)="sendCampaign()">
+    Send campaign
+  </button>
+</article>
