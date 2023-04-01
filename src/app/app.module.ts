@@ -15,7 +15,12 @@ import { MatTableModule } from '@angular/material/table';
 import { NewslettersComponent } from './newsletters/newsletters.component';
 import { NewsletterDetailComponent } from './newsletter-detail/newsletter-detail.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogCreateNewsletterComponent } from './dialog-create-newsletter/dialog-create-newsletter.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     NewslettersComponent,
     NewsletterDetailComponent,
     CampaignDetailComponent,
+    DialogCreateNewsletterComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatTableModule,
     HttpClientModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

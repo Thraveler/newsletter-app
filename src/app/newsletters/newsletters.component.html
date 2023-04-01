@@ -1,41 +1,60 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
+<article id="newsletters-container">
+  <section id="newsletters-header">
+    <h2>Newsletters created</h2>
+    <button mat-raised-button color="primary" (click)="openDialog()">
+      Create Newsletter
+    </button>
+  </section>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
+  <section>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
 
-   <!-- Campaigns Column -->
-   <ng-container matColumnDef="countCampaigns">
-    <th mat-header-cell *matHeaderCellDef> Campaigns </th>
-    <td mat-cell *matCellDef="let element"> {{element.countCampaigns}} </td>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
 
-   <!-- Subscribers Column -->
-   <ng-container matColumnDef="countSubscribers">
-    <th mat-header-cell *matHeaderCellDef> Subscribers </th>
-    <td mat-cell *matCellDef="let element"> {{element.countSubscribers}} </td>
-  </ng-container>
+      <!-- Campaigns Column -->
+      <ng-container matColumnDef="countCampaigns">
+        <th mat-header-cell *matHeaderCellDef>Campaigns</th>
+        <td mat-cell *matCellDef="let element">{{ element.countCampaigns }}</td>
+      </ng-container>
 
-    <!-- Created Column -->
-    <ng-container matColumnDef="createdAt">
-      <th mat-header-cell *matHeaderCellDef> Created </th>
-      <td mat-cell *matCellDef="let element"> {{element.createdAt | date }} </td>
-    </ng-container>
-  
-    <!-- Updated Column -->
-    <ng-container matColumnDef="updatedAt">
-      <th mat-header-cell *matHeaderCellDef> Updated </th>
-      <td mat-cell *matCellDef="let element"> {{element.updatedAt | date}} </td>
-    </ng-container>
+      <!-- Subscribers Column -->
+      <ng-container matColumnDef="countSubscribers">
+        <th mat-header-cell *matHeaderCellDef>Subscribers</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.countSubscribers }}
+        </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row
-    (click)="newsletterSelected(row)"
-    *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+      <!-- Created Column -->
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef>Created</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.createdAt | date }}
+        </td>
+      </ng-container>
+
+      <!-- Updated Column -->
+      <ng-container matColumnDef="updatedAt">
+        <th mat-header-cell *matHeaderCellDef>Updated</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.updatedAt | date }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        (click)="newsletterSelected(row)"
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+  </section>
+</article>

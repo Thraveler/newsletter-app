@@ -1,3 +1,13 @@
+#newsletter-detail-container {
+  padding: 20px;
+}
+
+.section-newsletter-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .mat-mdc-row .mat-mdc-cell {
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;

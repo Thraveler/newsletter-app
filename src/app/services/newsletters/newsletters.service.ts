@@ -5,7 +5,7 @@ import { Newsletter } from 'src/app/newsletters/newsletters.component';
 import { NewsletterDetail } from 'src/app/newsletter-detail/newsletter-detail.component';
 
 const auth_token: string =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0IiwiaWF0IjoxNjgwMzEzNDY1LCJleHAiOjE2ODAzMjA2NjV9.JI2kBMFk-5_sznPKU4cp9f6rqKqJw5w9BrOqHbhwOB8';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0IiwiaWF0IjoxNjgwMzI3NzkzLCJleHAiOjE2ODAzMzQ5OTN9.mM1q63ZU7htBdp6_l9Mekdy-5qaydq60XfIFiu5JQEo';
 
 const headers = new HttpHeaders({
   'Content-Type': 'application/json',
@@ -27,6 +27,16 @@ export class NewslettersService {
   getNewsletterById(newsletterId: number): Observable<NewsletterDetail> {
     return this.http.get<NewsletterDetail>(
       `${this.newslettersUrl}/${newsletterId}`,
+      {
+        headers,
+      }
+    );
+  }
+
+  createNewsletter(name: string) {
+    return this.http.post(
+      `${this.newslettersUrl}`,
+      { name },
       {
         headers,
       }

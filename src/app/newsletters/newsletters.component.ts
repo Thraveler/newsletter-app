@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewslettersService } from '../services/newsletters/newsletters.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogCreateNewsletterComponent } from '../dialog-create-newsletter/dialog-create-newsletter.component';
 
 export interface Newsletter {
   id: number;
@@ -65,11 +67,25 @@ export class NewslettersComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private newsletterService: NewslettersService
+    private newsletterService: NewslettersService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.getNewsletters();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogCreateNewsletterComponent, {
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result)
+        this.router.navigate([`/newsletters/${result.id}`], {
+          relativeTo: this.route,
+        });
+    });
   }
 
   getNewsletters() {
