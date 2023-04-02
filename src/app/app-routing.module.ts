@@ -4,13 +4,14 @@ import { NewslettersComponent } from './newsletters/newsletters.component';
 import { NewsletterDetailComponent } from './newsletter-detail/newsletter-detail.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'newsletters', component: NewslettersComponent },
-  { path: 'newsletters/:newsletterId', component: NewsletterDetailComponent },
-  { path: 'campaigns/:campaignId', component: CampaignDetailComponent },
+  { path: 'newsletters', component: NewslettersComponent, canActivate: [AuthGuard] },
+  { path: 'newsletters/:newsletterId', component: NewsletterDetailComponent, canActivate: [AuthGuard] },
+  { path: 'campaigns/:campaignId', component: CampaignDetailComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

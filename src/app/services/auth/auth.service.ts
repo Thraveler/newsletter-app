@@ -17,4 +17,8 @@ export class AuthService {
       email, password
     });
   }
+
+  isLogged(): boolean {
+    return !!localStorage.getItem('token');
+  }
 }
