@@ -21,6 +21,8 @@ export interface Owner {
 
 export interface Subscriber {
   id: number;
+  name: string;
+  lastname: string;
   email: string;
 }
 
@@ -30,29 +32,6 @@ export interface Campaign {
   sendDate: string;
 }
 
-const ELEMENT_DATA: NewsletterDetail = {
-  id: 2,
-  name: 'My newsletter to lear programming',
-  owner: {
-    id: 4,
-    name: 'Luis',
-    email: 'daphni.mgld@gmail.com',
-  },
-  subscribers: [
-    {
-      id: 3,
-      email: 'daphni_mgld@hotmail.com',
-    },
-  ],
-  campaigns: [
-    {
-      id: 11,
-      subject: 'Learn programming now',
-      sendDate: '2023-03-31T19:29:28.598Z',
-    },
-  ],
-};
-
 @Component({
   selector: 'app-newsletter-detail',
   templateUrl: './newsletter-detail.component.html',
@@ -60,32 +39,32 @@ const ELEMENT_DATA: NewsletterDetail = {
 })
 export class NewsletterDetailComponent implements OnInit {
   newsletter: NewsletterDetail | undefined;
-  displayedColumns: string[] = ['id', 'subject', 'sendDate'];
-  displayedColumnsSubscribers: string[] = ['id', 'email'];
+  displayedColumns: string[] = ['id', 'subject', 'sendDate', 'createdAt', 'updatedAt'];
+  displayedColumnsSubscribers: string[] = ['id', 'name', 'email'];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private newsletterService: NewslettersService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('newsletterId');
     if (id) this.getNewsletterById(+id);
   }
 
-  openDialog(): void {
+  openDialogAddCampaign(): void {
     const dialogRef = this.dialog.open(DialogCreateCampaignComponent, {
       data: { newsletterId: this.newsletter?.id },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if (result) window.location.reload();
+      if (result) this.router.navigate([`/campaigns/${result.id}`], { relativeTo: this.route });
     });
   }
 
-  openDialogSubscriber(): void {
+  openDialogAddSubscriber(): void {
     const dialogRef = this.dialog.open(DialogCreateSubscriberComponent, {
       data: { newsletterId: this.newsletter?.id },
     });
