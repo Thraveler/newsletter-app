@@ -4,13 +4,6 @@ import { Observable } from 'rxjs';
 import { Newsletter } from 'src/app/newsletters/newsletters.component';
 import { NewsletterDetail } from 'src/app/newsletter-detail/newsletter-detail.component';
 
-const auth_token: string =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0IiwiaWF0IjoxNjgwMzM2MTQ5LCJleHAiOjE2ODAzNDMzNDl9.VpNxqSXtQWUbCJCyB2G107TnmoqnLIAGUQwayIAQjic';
-
-const headers = new HttpHeaders({
-  'Content-Type': 'application/json',
-  Authorization: `Bearer ${auth_token}`,
-});
 
 @Injectable({
   providedIn: 'root',
@@ -18,38 +11,29 @@ const headers = new HttpHeaders({
 export class NewslettersService {
   private newslettersUrl = 'http://localhost:8080/api/newsletter';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getNewsletters(): Observable<Newsletter[]> {
-    return this.http.get<Newsletter[]>(this.newslettersUrl, { headers });
+    return this.http.get<Newsletter[]>(this.newslettersUrl);
   }
 
   getNewsletterById(newsletterId: number): Observable<NewsletterDetail> {
     return this.http.get<NewsletterDetail>(
-      `${this.newslettersUrl}/${newsletterId}`,
-      {
-        headers,
-      }
+      `${this.newslettersUrl}/${newsletterId}`
     );
   }
 
   createNewsletter(name: string) {
     return this.http.post(
       `${this.newslettersUrl}`,
-      { name },
-      {
-        headers,
-      }
+      { name }
     );
   }
 
   addCampaign(campaignId: number, subject: string, content: string) {
     return this.http.post(
       `${this.newslettersUrl}/${campaignId}/campaigns`,
-      { subject, content },
-      {
-        headers,
-      }
+      { subject, content }
     );
   }
 
@@ -61,10 +45,7 @@ export class NewslettersService {
   ) {
     return this.http.post(
       `${this.newslettersUrl}/${campaignId}/subscribers`,
-      { name, lastname, email },
-      {
-        headers,
-      }
+      { name, lastname, email }
     );
   }
 }

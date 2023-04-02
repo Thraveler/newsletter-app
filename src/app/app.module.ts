@@ -16,13 +16,16 @@ import { NewslettersComponent } from './newsletters/newsletters.component';
 import { NewsletterDetailComponent } from './newsletter-detail/newsletter-detail.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DialogCreateNewsletterComponent } from './dialog-create-newsletter/dialog-create-newsletter.component';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DialogCreateCampaignComponent } from './dialog-create-campaign/dialog-create-campaign.component';
 import { DialogCreateSubscriberComponent } from './dialog-create-subscriber/dialog-create-subscriber.component';
+import { AuthInterceptorService } from "../app/auth-interceptor.service";
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { DialogCreateSubscriberComponent } from './dialog-create-subscriber/dial
     DialogCreateNewsletterComponent,
     DialogCreateCampaignComponent,
     DialogCreateSubscriberComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,11 @@ import { DialogCreateSubscriberComponent } from './dialog-create-subscriber/dial
     MatFormFieldModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
