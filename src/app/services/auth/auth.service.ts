@@ -18,6 +18,16 @@ export class AuthService {
     });
   }
 
+  register(name: string, lastname: string, email: string, password: string): Observable<any> {
+    return this.http.post(`${this.authUrl}/register`, {
+      name, lastname, email, password
+    });
+  }
+
+  logout() {
+    localStorage.clear();
+  }
+
   isLogged(): boolean {
     return !!localStorage.getItem('token');
   }

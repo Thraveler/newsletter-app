@@ -25,6 +25,7 @@ import { DialogCreateCampaignComponent } from './dialog-create-campaign/dialog-c
 import { DialogCreateSubscriberComponent } from './dialog-create-subscriber/dialog-create-subscriber.component';
 import { AuthInterceptorService } from "../app/auth-interceptor.service";
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { LoginComponent } from './login/login.component';
     DialogCreateCampaignComponent,
     DialogCreateSubscriberComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

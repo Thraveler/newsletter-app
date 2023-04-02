@@ -1,0 +1,10 @@
+#register-container {
+  display: flex;
+  justify-content: center;
+}
+
+#register-container #register-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
