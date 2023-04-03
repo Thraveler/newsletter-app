@@ -1,3 +1,25 @@
 #campaign-detail-container {
   padding: 20px;
 }
+
+#campaign-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  margin: 4px 0;
+}
+
+#campaign-detail-body {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#campaign-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}

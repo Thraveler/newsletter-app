@@ -1,11 +1,28 @@
 <article id="campaign-detail-container">
-  <h1>{{ campaign.subject }}</h1>
-  <p>Content: {{ campaign.content }}</p>
-  <p>SendDate: {{ campaign.sendDate | date }}</p>
-  <p>CreatedAt: {{ campaign.createdAt | date }}</p>
-  <p>UpdatedAt: {{ campaign.updatedAt | date }}</p>
+  <section id="campaign-detail-header">
+    <div>
+      <h2>{{ campaign.subject }}</h2>
+      <small><b>Sent at:</b> {{ campaign.sendDate | date }}</small>
+      <br>
+      <small><b>Created at:</b> {{ campaign.createdAt | date }}</small>
+    </div>
 
-  <button mat-raised-button color="primary" (click)="sendCampaign()">
-    Send campaign
-  </button>
+    <button mat-raised-button color="primary" (click)="sendCampaign()">
+      Send campaign
+    </button>
+  </section>
+  <section id="campaign-detail-body">
+    <mat-form-field appearance="fill">
+      <mat-label>Content</mat-label>
+      <textarea matInput [(ngModel)]="campaign.content"></textarea>
+    </mat-form-field>
+    <figcaption id="campaign-image">
+      <img [src]="'http://localhost:8080/upload/' + campaign.image" alt="nopuelo">
+    </figcaption>
+    <button mat-raised-button color="primary" (click)="onSave()">
+      Save
+    </button>
+  </section>
+
+
 </article>
