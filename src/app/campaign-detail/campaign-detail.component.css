@@ -23,3 +23,14 @@ h2 {
   justify-content: center;
   margin-bottom: 20px;
 }
+
+#iframe-container {
+  display: flex;
+  justify-content: center;
+}
+
+iframe {
+  width: 50%;
+  height: 500px;
+  margin-bottom: 20px;
+}

@@ -16,9 +16,12 @@
       <mat-label>Content</mat-label>
       <textarea matInput [(ngModel)]="campaign.content"></textarea>
     </mat-form-field>
-    <figcaption id="campaign-image">
-      <img [src]="'http://localhost:8080/upload/' + campaign.image" alt="nopuelo">
+    <figcaption *ngIf="fileType != 'pdf'" id="campaign-image">
+      <img [src]="'http://localhost:8080/upload/' + campaign.file" [alt]="campaign.file">
     </figcaption>
+    <div id="iframe-container">
+      <iframe [src]="filePath | safePipe" *ngIf="fileType == 'pdf'"></iframe>
+    </div>
     <button mat-raised-button color="primary" (click)="onSave()">
       Save
     </button>
