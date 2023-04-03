@@ -10,4 +10,6 @@ RUN npm run build --prod
 
 FROM nginx:alpine
 
+COPY nginx.config /etc/nginx/nginx.conf 
+
 COPY --from=node /app/dist/newsletter-app /usr/share/nginx/html
