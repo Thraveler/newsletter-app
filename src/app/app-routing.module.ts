@@ -6,7 +6,7 @@ import { CampaignDetailComponent } from './campaign-detail/campaign-detail.compo
 import { UnsuscribeComponent } from './unsuscribe/unsuscribe.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

@@ -23,10 +23,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DialogCreateCampaignComponent } from './dialog-create-campaign/dialog-create-campaign.component';
 import { DialogCreateSubscriberComponent } from './dialog-create-subscriber/dialog-create-subscriber.component';
-import { AuthInterceptorService } from "../app/auth-interceptor.service";
+import { AuthInterceptorService } from "../app/interceptors/auth/auth-interceptor.service";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { SafePipePipe } from './safe-pipe.pipe';
+import { SafePipePipe } from '../app/pipes/safe/safe-pipe.pipe';
 import { UnsuscribeComponent } from './unsuscribe/unsuscribe.component';
 
 
