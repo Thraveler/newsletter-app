@@ -5,8 +5,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export interface DialogData {
   newsletterId: number;
-  subject: string;
-  content: string;
 }
 
 @Component({
