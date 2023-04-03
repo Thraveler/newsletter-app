@@ -18,7 +18,7 @@ import { CampaignDetailComponent } from './campaign-detail/campaign-detail.compo
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DialogCreateNewsletterComponent } from './dialog-create-newsletter/dialog-create-newsletter.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DialogCreateCampaignComponent } from './dialog-create-campaign/dialog-create-campaign.component';
@@ -57,6 +57,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

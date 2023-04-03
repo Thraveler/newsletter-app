@@ -30,10 +30,10 @@ export class NewslettersService {
     );
   }
 
-  addCampaign(campaignId: number, subject: string, content: string) {
+  addCampaign(campaignId: number, data) {
     return this.http.post(
       `${this.newslettersUrl}/${campaignId}/campaigns`,
-      { subject, content }
+      data
     );
   }
 

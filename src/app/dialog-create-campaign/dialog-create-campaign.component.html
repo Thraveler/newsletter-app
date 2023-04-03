@@ -1,18 +1,22 @@
-<h1 mat-dialog-title>Create Campaign</h1>
-<div mat-dialog-content>
-  <p>What's your campaign subject?</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Campaign subject</mat-label>
-    <input matInput [(ngModel)]="data.subject" />
-  </mat-form-field>
-  <p>What's your campaign content?</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Campaign content</mat-label>
-    <input matInput [(ngModel)]="data.content" />
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">No Thanks</button>
-  <button mat-button (click)="onSave()">Save</button>
-  <!-- <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button> -->
-</div>
+<form [formGroup]="campaignForm" (ngSubmit)="onSave()">
+  <h1 mat-dialog-title>Create Campaign</h1>
+  <div mat-dialog-content>
+    <p>What's your campaign subject?</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Campaign subject</mat-label>
+      <input matInput [(ngModel)]="data.subject" formControlName="subject" />
+    </mat-form-field>
+    <p>What's your campaign content?</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Campaign content</mat-label>
+      <input matInput [(ngModel)]="data.content" formControlName="content" />
+    </mat-form-field>
+    <p>Attachment</p>
+    <input type="file" formControlName="file" (change)="onFileChange($event)" />
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">No Thanks</button>
+    <button mat-button type="submit">Save</button>
+    <!-- <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button> -->
+  </div>
+</form>
