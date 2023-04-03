@@ -48,4 +48,14 @@ export class NewslettersService {
       { name, lastname, email }
     );
   }
+
+  removeSubscriber(
+    campaignId: number,
+    email: string
+  ) {
+    return this.http.post(
+      `${this.newslettersUrl}/${campaignId}/unsubscribe`,
+      { email }
+    );
+  }
 }

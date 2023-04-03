@@ -1,0 +1,19 @@
+form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}

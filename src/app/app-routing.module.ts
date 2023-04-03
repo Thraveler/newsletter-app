@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NewslettersComponent } from './newsletters/newsletters.component';
 import { NewsletterDetailComponent } from './newsletter-detail/newsletter-detail.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
+import { UnsuscribeComponent } from './unsuscribe/unsuscribe.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'newsletters', component: NewslettersComponent, canActivate: [AuthGuard] },
   { path: 'newsletters/:newsletterId', component: NewsletterDetailComponent, canActivate: [AuthGuard] },
   { path: 'campaigns/:campaignId', component: CampaignDetailComponent, canActivate: [AuthGuard] },
+  { path: 'unsubscribe/:newsletterId', component: UnsuscribeComponent },
 ];
 
 @NgModule({

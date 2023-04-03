@@ -27,6 +27,7 @@ import { AuthInterceptorService } from "../app/auth-interceptor.service";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SafePipePipe } from './safe-pipe.pipe';
+import { UnsuscribeComponent } from './unsuscribe/unsuscribe.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SafePipePipe } from './safe-pipe.pipe';
     LoginComponent,
     RegisterComponent,
     SafePipePipe,
+    UnsuscribeComponent,
   ],
   imports: [
     BrowserModule,
